@@ -22,6 +22,7 @@ const Phones = () => {
             />
           ))}
         </div>
+        <PhoneModal modalPhone={modalPhone} />
       </div>
     );
 };
