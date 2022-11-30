@@ -13,8 +13,10 @@ const MyOrders = () => {
         })
     },[user?.email])
     return (
-        <div className=" bg-blue-600 min-h-[90vh]">
-            <h3 className='text-center text-3xl font-bold text-white py-4'>My Orders</h3>
+      <div className=" bg-gradient-to-r from-pink-500 via-purple-500 to-blue-700 min-h-[90vh]">
+        <h3 className="text-center text-3xl font-bold text-white py-4">
+          My Orders
+        </h3>
         <div className="w-4/5 mx-auto grid gap-5 grid-cols-1 lg:grid-cols-2 md:grid-cols-2">
           {myOrders.map((order) => (
             <OrderCard key={order._id} order={order} />
