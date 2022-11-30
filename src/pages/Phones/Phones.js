@@ -1,8 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
-import useVerify from '../../hooks/useVerify';
-import Loading from '../shared/Loading/Loading';
 import PhoneCard from './PhoneCard';
 import PhoneModal from './PhoneModal';
 
@@ -13,7 +11,7 @@ const Phones = () => {
 
 
     return (
-      <div className="bg-blue-500 py-12">
+      <div className="bg-gradient-to-r from-pink-500 via-purple-500 to-blue-700 py-12">
         <div className="w-4/5 mx-auto grid gap-8 grid-cols-1 lg:grid-cols-3 md:grid-cols-2">
           {phones.map((phone) => (
             <PhoneCard

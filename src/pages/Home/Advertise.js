@@ -16,16 +16,13 @@ const Advertise = () => {
     return (
       <>
         {phones.length && (
-          <div className=" bg-blue-600 py-4">
+          <div className=" bg-gradient-to-r from-pink-500 via-purple-500 to-blue-700 py-4">
             <h3 className="font-semibold text-xl underline text-white text-center">
               Advertise Items
             </h3>
             <div className="w-4/5 mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-1">
               {phones.map((phone) => (
-                <AdvertiseCard
-                  key={phone._id}
-                  phone={phone}
-                />
+                <AdvertiseCard key={phone._id} phone={phone} />
               ))}
             </div>
           </div>

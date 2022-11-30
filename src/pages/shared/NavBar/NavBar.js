@@ -14,7 +14,7 @@ const NavBar = () => {
     return <Loading/>
   }
    return (
-     <nav className="bg-blue-700 ">
+     <nav className="bg-gradient-to-r from-blue-700 via-purple-500 to-pink-500">
        <div className="w-4/5 mx-auto flex justify-between items-center py-8">
          <div className="flex items-center gap-4 md:text-[30px] text-[20px]">
            <NavLink to="/">
@@ -30,7 +30,9 @@ const NavBar = () => {
          </div>
          <div
            className={`flex items-center gap-8  absolute left-0 text-center text-lg lg:static ${
-             !open ? "top-[80px] flex-col gap-2 py-6 w-full bg-blue-600" : "top-[-200px]"
+             !open
+               ? "top-[80px] flex-col gap-2 py-6 w-full bg-blue-600"
+               : "top-[-200px]"
            } text-gray-700 text-xl font-semibold`}
          >
            <NavLink className="text-white hover:text-blue-400" to="/">
