@@ -6,7 +6,6 @@ const MyBuyers = () => {
     const { user } = useContext(AuthContext);
     const [buyers, setBuyers] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/buyers/${user?.email}`)
         .then(res=>res.json())
             .then(data => {
             setBuyers(data);
