@@ -6,7 +6,8 @@ import PhoneModal from './PhoneModal';
 
 const Phones = () => {
   const [modalPhone, setModalPhone] = useState(null)
-
+  const phones = useLoaderData()
+    const { user } = useContext(AuthContext);
 
 
     return (
