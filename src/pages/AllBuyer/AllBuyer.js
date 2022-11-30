@@ -22,7 +22,6 @@ const AllBuyer = () => {
       .then(data => {
        if (data.deletedCount > 0) {
          refetch();
-         toast.success("Successfully deleted buyer.")
        }
     })
   }
