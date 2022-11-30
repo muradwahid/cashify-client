@@ -37,7 +37,7 @@ const SingleProduct = ({ phone, user, handlePhoneDelete }) => {
     productId:_id
   };
   const handleAdvertise = () => {
-    fetch("http://localhost:5000/advertise", {
+    fetch("https://assignment-12-server-gules.vercel.app/advertise", {
       method: "POST",
       headers: {
         "content-type": "application/json",

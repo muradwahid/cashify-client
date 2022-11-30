@@ -17,7 +17,7 @@ const PhoneModal = ({ modalPhone }) => {
         image: modalPhone.image,
         sellerName:modalPhone.seller
       };
-      fetch("http://localhost:5000/buyers", {
+      fetch("https://assignment-12-server-gules.vercel.app/buyers", {
         method: "POST",
         headers: {
           "content-type": "application/json",

@@ -4,7 +4,7 @@ import CategoryItems from './CategoryItems';
 const Category = () => {
     const [phoneCategory, setPhoneCategory] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:5000/category")
+        fetch("https://assignment-12-server-gules.vercel.app/category")
         .then(res=>res.json())
             .then(data => {
             setPhoneCategory(data)

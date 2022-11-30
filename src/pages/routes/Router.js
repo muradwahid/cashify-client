@@ -11,12 +11,14 @@ import MyOrders from "../MyOrders/MyOrders";
 import MyProduct from "../MyProduct/MyProduct";
 import Phones from "../Phones/Phones";
 import Register from "../Register/Register";
+import ErrorPage from "../shared/ErrorPage/ErrorPage";
 import PrivetRouter from "./PrivetRouter";
 
 export const route = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
+    errorElement:<ErrorPage/>,
     children: [
       { path: "/", element: <Home /> },
       {
@@ -27,7 +29,7 @@ export const route = createBrowserRouter([
           </PrivetRouter>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/phones/${params.id}`),
+          fetch(`https://assignment-12-server-gules.vercel.app/phones/${params.id}`),
       },
       { path: "/register", element: <Register /> },
       {

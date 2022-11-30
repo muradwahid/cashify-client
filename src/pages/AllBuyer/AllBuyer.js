@@ -1,18 +1,20 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import toast from 'react-hot-toast';
+import useTitle from '../../hooks/useTitle';
 
 const AllBuyer = () => {
+  useTitle("All Buyers")
   const { data: buyers = [],refetch } = useQuery({
     queryKey: ["buyers"],
     queryFn: async () => {
-      const res=await fetch("http://localhost:5000/buyers");
+      const res=await fetch("https://assignment-12-server-gules.vercel.app/buyers");
       const data=await res.json()
       return data;
     }
   })
   const handleBuyerDelete = (id) => {
-    fetch(`http://localhost:5000/users/${id}`, {
+    fetch(`https://assignment-12-server-gules.vercel.app/users/${id}`, {
       method: "DELETE",
       headers: {
         "content-type":"application/json"
@@ -28,7 +30,7 @@ const AllBuyer = () => {
   }
 
   const handleVerify = (email) => {
-    fetch(`http://localhost:5000/userverify/${email}`, {
+    fetch(`https://assignment-12-server-gules.vercel.app/userverify/${email}`, {
       method: "PUT",
       headers: {
         "content-type":"application/json"

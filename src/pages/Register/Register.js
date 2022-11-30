@@ -48,7 +48,7 @@ const Register = () => {
 
   const saveUser = (name, email, photoURL) => {
     const user = { name, email, photoURL, role: "buyer",verified:false };
-    fetch("http://localhost:5000/users", {
+    fetch("https://assignment-12-server-gules.vercel.app/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",

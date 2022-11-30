@@ -3,9 +3,11 @@ import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 
 const AddProduct = () => {
   const { user } = useContext(AuthContext);
+  useTitle("Add Product")
   const { register, handleSubmit } = useForm()
   const post_date=new Date()
   const navigate = useNavigate()
@@ -50,7 +52,7 @@ const AddProduct = () => {
              post_date,
              categoryId: Number(categoryId),
            };
-           fetch(`http://localhost:5000/phones`, {
+           fetch(`https://assignment-12-server-gules.vercel.app/phones`, {
              method: "POST",
              headers: {
                "content-type": "application/json",
@@ -70,7 +72,7 @@ const AddProduct = () => {
 
 
     return (
-      <div className="bg-blue-500 flex justify-center py-12">
+      <div className="bg-gradient-to-r from-blue-700 via-purple-500 to-pink-500 flex justify-center py-12">
         <form onSubmit={handleSubmit(handleAddProduct)} className="w-2/5">
           <div className="form-control w-full">
             <label className="label">

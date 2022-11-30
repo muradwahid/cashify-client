@@ -2,23 +2,25 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../contexts/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 import Loading from '../shared/Loading/Loading';
 import SingleProduct from './SingleProduct';
 
 const MyProduct = () => {
-    const {user}=useContext(AuthContext)
+  const { user } = useContext(AuthContext)
+  useTitle("My Product")
     const { data: phones = [], isLoading, refetch } = useQuery({
         queryKey: ["phones", user?.email],
         queryFn: async () => {
             const res =await fetch(
-              `http://localhost:5000/myproduct/${user?.email}`
+              `https://assignment-12-server-gules.vercel.app/myproduct/${user?.email}`
             );
             const data =await res.json();
             return data;
         }
     })
   const handlePhoneDelete = (id) => {
-    fetch(`http://localhost:5000/myproduct/${id}`, {
+    fetch(`https://assignment-12-server-gules.vercel.app/myproduct/${id}`, {
       method: "DELETE",
       headers: {
         'content-type':"application/json"
@@ -35,7 +37,7 @@ const MyProduct = () => {
     
   }
   const advertiseDelete = (id) => {
-        fetch(`http://localhost:5000/advertise/${id}`, {
+        fetch(`https://assignment-12-server-gules.vercel.app/advertise/${id}`, {
           method: "DELETE",
           headers: {
             "content-type": "application/json",

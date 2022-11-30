@@ -4,10 +4,12 @@ import { AiFillGoogleCircle } from "react-icons/ai";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../contexts/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
+import useTitle from "../../hooks/useTitle";
 const Login = () => {
   const { signIn, popupSignIn } = useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
   const location = useLocation();
+  useTitle("Login")
   let from = location.state?.from?.pathname || "/";
   const navigate = useNavigate();
     const handleSignIn = (e) => {
@@ -21,7 +23,7 @@ const Login = () => {
             .then(result => {
               const user = result.user;
               fetch(
-                `http://localhost:5000/usersrole?email=${email}&role=${condition}`,
+                `https://assignment-12-server-gules.vercel.app/usersrole?email=${email}&role=${condition}`,
                 {
                   method: "PUT",
                   headers: {
@@ -47,7 +49,7 @@ const Login = () => {
               name: user.displayName,
               email:user.email
             }
-            fetch("http://localhost:5000/users", {
+            fetch("https://assignment-12-server-gules.vercel.app/users", {
               method: "POST",
               headers: {
                 "content-type":"application/json"
@@ -57,7 +59,7 @@ const Login = () => {
               .then(res => res.json)
               .then(data => {
               })
-            fetch(`http://localhost:5000/users/${user.email}`, {
+            fetch(`https://assignment-12-server-gules.vercel.app/users/${user.email}`, {
               method: "PUT",
               headers: {
                 "content-type":"application/json"

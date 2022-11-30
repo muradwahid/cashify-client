@@ -1,12 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 import OrderCard from './OrderCard';
 
 const MyOrders = () => {
-    const {user}=useContext(AuthContext)
+  const { user } = useContext(AuthContext)
+  useTitle("My Orders")
     const [myOrders, setMyOrders] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/buyerorders/${user?.email}`)
+        fetch(`https://assignment-12-server-gules.vercel.app/buyerorders/${user?.email}`)
             .then(res => res.json())
             .then(data => {
             setMyOrders(data)
