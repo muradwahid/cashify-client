@@ -55,7 +55,8 @@ const Register = () => {
       },
       body: JSON.stringify(user),
     })
-      
+      .then((res) => res.json())
+      .then((data) => {});
   };
 
   return (
