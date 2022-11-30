@@ -7,7 +7,6 @@ import SingleProduct from './SingleProduct';
 
 const MyProduct = () => {
     const {user}=useContext(AuthContext)
-    const { data: phones = [], isLoading, refetch } = useQuery({
         queryKey: ["phones", user?.email],
         queryFn: async () => {
             const res =await fetch(

@@ -5,7 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const AddProduct = () => {
-  const { user } = useContext(AuthContext);=
+  const { user } = useContext(AuthContext);
+  const { register, handleSubmit } = useForm()
   const post_date=new Date()
   const navigate = useNavigate()
   const handleAddProduct = (data) => {
